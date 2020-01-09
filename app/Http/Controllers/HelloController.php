@@ -11,7 +11,8 @@ class HelloController extends Controller
 {
 
   public function index(Request $request) {
-    $items = DB::select('select * from users');
+    $items = DB::table('users')->get();
+    // $items = DB::select('select * from users');
     return view('hello.index', ['items' => $items]);
   }
 
@@ -32,5 +33,11 @@ class HelloController extends Controller
     ];
     DB::insert('insert into users (name, email, password) values (:name, :email, :password)', $param);
     return redirect('/hello');
+  }
+
+  public function show(Request $request) {
+    $id = $request->id;
+    $item = DB::table('users')->where('id', $id)->first();
+    return view('hello.show', ['item' => $item]);
   }
 }

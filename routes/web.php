@@ -22,6 +22,7 @@ Route::get('hello/show', 'HelloController@show');
 
 Route::post('hello', 'HelloController@post');
 
+Route::get('user', 'UserController@index');
 
 Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');

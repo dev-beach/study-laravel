@@ -27,6 +27,8 @@ Route::get('user', 'UserController@index');
 Route::get('hello/add', 'HelloController@add');
 Route::post('hello/add', 'HelloController@create');
 
+Route::resource('rest', 'RestappController');
+
 // Route::get('hello/{id?}/{pass?}', 'HelloController@index');
 
 /*

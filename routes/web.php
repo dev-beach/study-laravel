@@ -29,6 +29,9 @@ Route::post('hello/add', 'HelloController@create');
 
 Route::resource('rest', 'RestappController');
 
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
 // Route::get('hello/{id?}/{pass?}', 'HelloController@index');
 
 /*

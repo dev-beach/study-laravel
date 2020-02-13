@@ -40,4 +40,15 @@ class HelloController extends Controller
     $item = DB::table('users')->where('id', $id)->first();
     return view('hello.show', ['item' => $item]);
   }
+
+  public function ses_get(Request $request) {
+    $sesdata = $request->session()->get('msg');
+    return view('hello.session', ['session_data' => $sesdata]);
+  }
+
+  public function ses_put(Request $request) {
+    $msg = $request->input;
+    $request->session()->put('msg', $msg);
+    return redirect('hello/session');
+  }
 }
